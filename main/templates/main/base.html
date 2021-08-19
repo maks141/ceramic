@@ -62,7 +62,6 @@
     </div>
     </div>
   </div>
-
     <div id="openModal" class="modal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -97,31 +96,32 @@
                   <p>Сумма: {{ cart.get_total_price }} р.</p>
                 </div>
                 <div class="form-cart-block">
-                  <form action="">
+                  <form action="{% url 'pay' %}" method='post'>
+                    {% csrf_token %}
                     <div class="reg-info-block">
-                      <p>Ваш Email</p>
-                      <input type="text" class="input-info">
-                      <input type="text" class="input-info">
-                      <p>Есть подарочный сертификат?</p>
-                      <input type="text" class="input-info">
+                      <p class="title-input">Ваш Email</p>
+                      {{ cartForm.email }}
+                      {{ cartForm.number }}
+                      <p class="title-input">Есть подарочный сертификат?</p>
+                      {{ cartForm.gift_sertificate }}
                     </div>
                     <div class="dostavka-block">
                       <h3>Доставка</h3>
-                      <p>Город</p>
-                      <input type="text" class="input-info">
-                      <input type="radio"> СДЭК
-                      <p>Получатель (ФИО полностью)</p>
-                      <input type="text" class="input-info">
-                      <p>Улица</p>
-                      <input type="text" class="input-info">
+                      <p class="title-input">Город</p>
+                      {{ cartForm.city }}
+                      {{ cartForm.type_dost }} СДЭК
+                      <p class="title-input">Получатель (ФИО полностью)</p>
+                      {{ cartForm.name_of_user }}
+                      <p class="title-input">Улица</p>
+                      {{ cartForm.street }}
                       <div class="home-room">
                         <div class="home-room-child">
-                          <p>Дом</p>
-                          <input type="text" class="input-home-room">
+                          <p class="title-input">Дом</p>
+                          {{ cartForm.house }}
                         </div>
                         <div class="home-room-child">
-                          <p>Квартира/офис</p>
-                          <input type="text" class="input-home-room">
+                          <p class="title-input">Квартира/офис</p>
+                          {{ cartForm.room }}
                         </div>
                       </div>
                       <div class="total">
@@ -132,7 +132,7 @@
                       </div>
                     </div>
                     <div class="btn-zakaz">
-                      <a href="{% url 'pay' %}"><div class="button-buy">Перейти к оплате</div></a>
+                      <input type="submit" value="Перейти к оплате">
                     </div>
                   </form>
                 </div>

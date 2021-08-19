@@ -131,3 +131,11 @@ CART_SESSION_ID = 'cart'
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'ceramic-tam-tam@mail.ru'
+EMAIL_HOST_PASSWORD = 'cVLftBgXjjUzUFgiIY1p'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+

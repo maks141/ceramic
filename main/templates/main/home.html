@@ -6,12 +6,15 @@
     <div class="wrapper">
         <div class="slider-container">
             <div class="slider-track">
+                <!-- <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
-                <div class="slider-item"></div>
-                <div class="slider-item"></div>
+                <div class="slider-item"></div> -->
+                {% for img in slider %}
+                    <img src="{{ img.image.url }}" alt="" class="slider-item">
+                {% endfor %}
             </div>
         </div>
         <div class="slider-buttons">
